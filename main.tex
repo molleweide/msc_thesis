@@ -1,0 +1,96 @@
+\documentclass{kththesis}
+\usepackage[hidelinks]{hyperref}
+\usepackage{array}
+\usepackage{float}
+\usepackage[parfill]{parskip}
+
+\usepackage[acronym]{glossaries}
+\usepackage[titletoc]{appendix}
+
+\makeglossaries
+\newacronym{di}{DI}{Deionized}
+\newacronym{diw}{DIW}{Deionized water}
+\newacronym{ftir}{FTIR}{Fourier transform infrared spectroscopy}
+\newacronym{nmr}{NMR}{Nuclear magnetic resonance spectroscopy}
+\newacronym{ic}{IC}{Ion chromatography}
+\newacronym{cmc}{CMC}{Carboxymethylcellulose sodium salt}
+\newacronym{dmso}{DMSO}{Dimethyl sulfoxide-D6}
+\newacronym{mwco}{MWCOk}{Molecular weight cut off}
+\newacronym{M}{M}{Molar}
+
+% % colors
+% \pagecolor{black}
+% \color{green}
+%
+\usepackage{csquotes} % Recommended by biblatex
+\usepackage[style=ieee,sorting=none,backend=biber]{biblatex}
+\urlstyle{same}
+\addbibresource{references.bib} % The file containing our references, in BibTeX format
+
+% numeric
+\setlength{\parindent}{0pt}
+
+% \bachelortrue
+
+\title{This is a new title!!!}
+\alttitle{Alt title}
+\author{Hjalmar Jakobsson}
+\email{hjahja@kth.se}
+\supervisor{Andre Holzapfel}
+\examiner{Roberto Bresin}
+\programme{Media programmf}
+\school{com sci}
+\date{\today}
+
+% Uncomment the next line to include cover generated at https://intra.kth.se/kth-cover?l=en
+\kthcover{kth-cover.pdf}
+
+
+\begin{document}
+
+% Frontmatter includes the titlepage, abstracts and table-of-contents
+% \frontmatter
+\includepdf[pages=1]{kth-cover.pdf}
+\pagenumbering{roman}
+
+% \titlepage
+
+\begin{abstract}
+This is the abstract
+
+\end{abstract}
+
+\begin{otherlanguage}{swedish}
+  \begin{abstract}
+    Detta är det svenska abstractet.
+
+  \end{abstract}
+\end{otherlanguage}
+
+% Print the glossary
+\printglossary[type=\acronymtype,nonumberlist]
+
+\tableofcontents
+\let\cleardoublepage\clearpage
+% Mainmatter is where the actual contents of the thesis goes
+\mainmatter
+
+\include{Parts/introduction}
+\include{Parts/related}
+\include{Parts/method}
+\include{Parts/results}
+\include{Parts/discussion}
+\include{Parts/conclusion}
+
+% Print the bibliography (and make it appear in the table of contents)
+\printbibliography[heading=bibnumbered, title=References]
+
+\begin{appendices}
+\include{Parts/appendix}
+\end{appendices}
+
+% Tailmatter inserts the back cover page (if enabled)
+% \tailmatter
+\includepdf[pages=2]{kth-cover.pdf}
+
+\end{document}
